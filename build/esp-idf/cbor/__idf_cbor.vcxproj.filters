@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborencoder_close_container_checked.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborencoder.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborerrorstrings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborparser_dup_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborpretty_stdio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborpretty.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cbortojson.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\cborvalidation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\tinycbor\src\open_memstream.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\cbor\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8F0EED4-5CCF-3D4D-A4DF-18DD4D272103}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

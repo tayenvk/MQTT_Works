@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DFFFB8FE-25A1-386E-B9AE-F0A84468C674}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>__ldgen_output_sections.ld</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\config;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\a970fedd2db1b27ea41602be2b7bba6c\sections.ld.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ld/sections.ld</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+c:\Users\tayen\OneDrive\Documenten\esp\python_env\idf4.4_py3.8_env\Scripts\python.exe C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/sdkconfig --fragments C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_ringbuf/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/driver/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_pm/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/spi_flash/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_gdbstub/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/espcoredump/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_phy/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/app.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/hal/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_event/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_wifi/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/lwip/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/log/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/heap/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/soc/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_hw_support/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/xtensa/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/common.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/soc.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/freertos/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/newlib.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/system_libs.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/app_trace/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/bt/linker.lf --input C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in --output C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/Kconfig --env-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/config.env --libraries-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/ldgen_libraries --objdump
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\esp32\sections.ld.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_ringbuf\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\driver\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_pm\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\spi_flash\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_gdbstub\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\espcoredump\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_phy\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\app.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\hal\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_event\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_wifi\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\lwip\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\log\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\heap\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\soc\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_hw_support\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\xtensa\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\common.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\soc.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\freertos\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\newlib.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\system_libs.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\app_trace\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\bt\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ringbuf\Debug\libesp_ringbuf.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\efuse\Debug\libefuse.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ipc\Debug\libesp_ipc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\driver\Debug\libdriver.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_pm\Debug\libesp_pm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mbedtls\Debug\libmbedtls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_update\Debug\libapp_update.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\bootloader_support\Debug\libbootloader_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spi_flash\Debug\libspi_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nvs_flash\Debug\libnvs_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\pthread\Debug\libpthread.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_gdbstub\Debug\libesp_gdbstub.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\espcoredump\Debug\libespcoredump.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_phy\Debug\libesp_phy.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\Debug\libesp_system.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_rom\Debug\libesp_rom.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\hal\Debug\libhal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\vfs\Debug\libvfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_eth\Debug\libesp_eth.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcpip_adapter\Debug\libtcpip_adapter.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_netif\Debug\libesp_netif.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_event\Debug\libesp_event.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wpa_supplicant\Debug\libwpa_supplicant.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_wifi\Debug\libesp_wifi.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\console\Debug\libconsole.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\lwip\Debug\liblwip.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\log\Debug\liblog.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\heap\Debug\libheap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\soc\Debug\libsoc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hw_support\Debug\libesp_hw_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\xtensa\Debug\libxtensa.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_common\Debug\libesp_common.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_timer\Debug\libesp_timer.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freertos\Debug\libfreertos.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\newlib\Debug\libnewlib.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cxx\Debug\libcxx.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_trace\Debug\libapp_trace.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\asio\Debug\libasio.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cbor\Debug\libcbor.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\unity\Debug\libunity.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cmock\Debug\libcmock.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\coap\Debug\libcoap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nghttp\Debug\libnghttp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp-tls\Debug\libesp-tls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_adc_cal\Debug\libesp_adc_cal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hid\Debug\libesp_hid.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcp_transport\Debug\libtcp_transport.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_client\Debug\libesp_http_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_server\Debug\libesp_http_server.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_https_ota\Debug\libesp_https_ota.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_lcd\Debug\libesp_lcd.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protobuf-c\Debug\libprotobuf-c.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protocomm\Debug\libprotocomm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mdns\Debug\libmdns.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_local_ctrl\Debug\libesp_local_ctrl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\sdmmc\Debug\libsdmmc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_serial_slave_link\Debug\libesp_serial_slave_link.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_websocket_client\Debug\libesp_websocket_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\expat\Debug\libexpat.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wear_levelling\Debug\libwear_levelling.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\fatfs\Debug\libfatfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freemodbus\Debug\libfreemodbus.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\jsmn\Debug\libjsmn.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\json\Debug\libjson.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\libsodium\Debug\liblibsodium.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mqtt\Debug\libmqtt.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\openssl\Debug\libopenssl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\perfmon\Debug\libperfmon.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spiffs\Debug\libspiffs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\ulp\Debug\libulp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wifi_provisioning\Debug\libwifi_provisioning.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\main\Debug\libmain.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\sdkconfig;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ld/sections.ld</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+c:\Users\tayen\OneDrive\Documenten\esp\python_env\idf4.4_py3.8_env\Scripts\python.exe C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/sdkconfig --fragments C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_ringbuf/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/driver/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_pm/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/spi_flash/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_gdbstub/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/espcoredump/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_phy/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/app.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/hal/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_event/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_wifi/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/lwip/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/log/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/heap/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/soc/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_hw_support/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/xtensa/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/common.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/soc.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/freertos/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/newlib.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/system_libs.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/app_trace/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/bt/linker.lf --input C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in --output C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/Kconfig --env-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/config.env --libraries-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/ldgen_libraries --objdump
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\esp32\sections.ld.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_ringbuf\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\driver\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_pm\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\spi_flash\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_gdbstub\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\espcoredump\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_phy\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\app.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\hal\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_event\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_wifi\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\lwip\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\log\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\heap\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\soc\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_hw_support\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\xtensa\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\common.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\soc.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\freertos\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\newlib.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\system_libs.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\app_trace\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\bt\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ringbuf\Release\libesp_ringbuf.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\efuse\Release\libefuse.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ipc\Release\libesp_ipc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\driver\Release\libdriver.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_pm\Release\libesp_pm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mbedtls\Release\libmbedtls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_update\Release\libapp_update.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\bootloader_support\Release\libbootloader_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spi_flash\Release\libspi_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nvs_flash\Release\libnvs_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\pthread\Release\libpthread.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_gdbstub\Release\libesp_gdbstub.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\espcoredump\Release\libespcoredump.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_phy\Release\libesp_phy.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\Release\libesp_system.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_rom\Release\libesp_rom.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\hal\Release\libhal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\vfs\Release\libvfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_eth\Release\libesp_eth.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcpip_adapter\Release\libtcpip_adapter.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_netif\Release\libesp_netif.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_event\Release\libesp_event.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wpa_supplicant\Release\libwpa_supplicant.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_wifi\Release\libesp_wifi.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\console\Release\libconsole.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\lwip\Release\liblwip.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\log\Release\liblog.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\heap\Release\libheap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\soc\Release\libsoc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hw_support\Release\libesp_hw_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\xtensa\Release\libxtensa.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_common\Release\libesp_common.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_timer\Release\libesp_timer.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freertos\Release\libfreertos.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\newlib\Release\libnewlib.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cxx\Release\libcxx.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_trace\Release\libapp_trace.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\asio\Release\libasio.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cbor\Release\libcbor.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\unity\Release\libunity.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cmock\Release\libcmock.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\coap\Release\libcoap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nghttp\Release\libnghttp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp-tls\Release\libesp-tls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_adc_cal\Release\libesp_adc_cal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hid\Release\libesp_hid.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcp_transport\Release\libtcp_transport.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_client\Release\libesp_http_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_server\Release\libesp_http_server.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_https_ota\Release\libesp_https_ota.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_lcd\Release\libesp_lcd.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protobuf-c\Release\libprotobuf-c.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protocomm\Release\libprotocomm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mdns\Release\libmdns.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_local_ctrl\Release\libesp_local_ctrl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\sdmmc\Release\libsdmmc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_serial_slave_link\Release\libesp_serial_slave_link.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_websocket_client\Release\libesp_websocket_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\expat\Release\libexpat.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wear_levelling\Release\libwear_levelling.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\fatfs\Release\libfatfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freemodbus\Release\libfreemodbus.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\jsmn\Release\libjsmn.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\json\Release\libjson.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\libsodium\Release\liblibsodium.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mqtt\Release\libmqtt.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\openssl\Release\libopenssl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\perfmon\Release\libperfmon.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spiffs\Release\libspiffs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\ulp\Release\libulp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wifi_provisioning\Release\libwifi_provisioning.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\main\Release\libmain.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\sdkconfig;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ld/sections.ld</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+c:\Users\tayen\OneDrive\Documenten\esp\python_env\idf4.4_py3.8_env\Scripts\python.exe C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/sdkconfig --fragments C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_ringbuf/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/driver/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_pm/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/spi_flash/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_gdbstub/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/espcoredump/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_phy/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/app.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/hal/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_event/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_wifi/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/lwip/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/log/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/heap/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/soc/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_hw_support/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/xtensa/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/common.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/soc.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/freertos/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/newlib.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/system_libs.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/app_trace/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/bt/linker.lf --input C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in --output C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/Kconfig --env-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/config.env --libraries-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/ldgen_libraries --objdump
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\esp32\sections.ld.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_ringbuf\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\driver\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_pm\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\spi_flash\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_gdbstub\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\espcoredump\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_phy\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\app.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\hal\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_event\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_wifi\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\lwip\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\log\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\heap\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\soc\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_hw_support\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\xtensa\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\common.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\soc.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\freertos\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\newlib.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\system_libs.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\app_trace\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\bt\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ringbuf\MinSizeRel\libesp_ringbuf.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\efuse\MinSizeRel\libefuse.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ipc\MinSizeRel\libesp_ipc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\driver\MinSizeRel\libdriver.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_pm\MinSizeRel\libesp_pm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mbedtls\MinSizeRel\libmbedtls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_update\MinSizeRel\libapp_update.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\bootloader_support\MinSizeRel\libbootloader_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spi_flash\MinSizeRel\libspi_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nvs_flash\MinSizeRel\libnvs_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\pthread\MinSizeRel\libpthread.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_gdbstub\MinSizeRel\libesp_gdbstub.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\espcoredump\MinSizeRel\libespcoredump.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_phy\MinSizeRel\libesp_phy.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\MinSizeRel\libesp_system.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_rom\MinSizeRel\libesp_rom.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\hal\MinSizeRel\libhal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\vfs\MinSizeRel\libvfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_eth\MinSizeRel\libesp_eth.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcpip_adapter\MinSizeRel\libtcpip_adapter.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_netif\MinSizeRel\libesp_netif.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_event\MinSizeRel\libesp_event.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wpa_supplicant\MinSizeRel\libwpa_supplicant.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_wifi\MinSizeRel\libesp_wifi.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\console\MinSizeRel\libconsole.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\lwip\MinSizeRel\liblwip.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\log\MinSizeRel\liblog.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\heap\MinSizeRel\libheap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\soc\MinSizeRel\libsoc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hw_support\MinSizeRel\libesp_hw_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\xtensa\MinSizeRel\libxtensa.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_common\MinSizeRel\libesp_common.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_timer\MinSizeRel\libesp_timer.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freertos\MinSizeRel\libfreertos.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\newlib\MinSizeRel\libnewlib.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cxx\MinSizeRel\libcxx.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_trace\MinSizeRel\libapp_trace.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\asio\MinSizeRel\libasio.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cbor\MinSizeRel\libcbor.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\unity\MinSizeRel\libunity.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cmock\MinSizeRel\libcmock.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\coap\MinSizeRel\libcoap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nghttp\MinSizeRel\libnghttp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp-tls\MinSizeRel\libesp-tls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_adc_cal\MinSizeRel\libesp_adc_cal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hid\MinSizeRel\libesp_hid.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcp_transport\MinSizeRel\libtcp_transport.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_client\MinSizeRel\libesp_http_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_server\MinSizeRel\libesp_http_server.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_https_ota\MinSizeRel\libesp_https_ota.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_lcd\MinSizeRel\libesp_lcd.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protobuf-c\MinSizeRel\libprotobuf-c.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protocomm\MinSizeRel\libprotocomm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mdns\MinSizeRel\libmdns.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_local_ctrl\MinSizeRel\libesp_local_ctrl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\sdmmc\MinSizeRel\libsdmmc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_serial_slave_link\MinSizeRel\libesp_serial_slave_link.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_websocket_client\MinSizeRel\libesp_websocket_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\expat\MinSizeRel\libexpat.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wear_levelling\MinSizeRel\libwear_levelling.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\fatfs\MinSizeRel\libfatfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freemodbus\MinSizeRel\libfreemodbus.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\jsmn\MinSizeRel\libjsmn.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\json\MinSizeRel\libjson.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\libsodium\MinSizeRel\liblibsodium.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mqtt\MinSizeRel\libmqtt.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\openssl\MinSizeRel\libopenssl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\perfmon\MinSizeRel\libperfmon.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spiffs\MinSizeRel\libspiffs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\ulp\MinSizeRel\libulp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wifi_provisioning\MinSizeRel\libwifi_provisioning.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\main\MinSizeRel\libmain.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\sdkconfig;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ld/sections.ld</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+c:\Users\tayen\OneDrive\Documenten\esp\python_env\idf4.4_py3.8_env\Scripts\python.exe C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/sdkconfig --fragments C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_ringbuf/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/driver/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_pm/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/spi_flash/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_gdbstub/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/espcoredump/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_phy/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/app.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/hal/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_event/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_wifi/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/lwip/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/log/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/heap/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/soc/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_hw_support/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/xtensa/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/common.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_common/soc.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/freertos/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/newlib.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/newlib/system_libs.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/app_trace/linker.lf	C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/bt/linker.lf --input C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in --output C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/Kconfig --env-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/config.env --libraries-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/ldgen_libraries --objdump
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\esp32\sections.ld.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_ringbuf\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\driver\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_pm\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\spi_flash\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_gdbstub\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\espcoredump\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_phy\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\app.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\hal\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_event\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_wifi\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\lwip\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\log\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\heap\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\soc\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_hw_support\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\xtensa\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\common.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_common\soc.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\freertos\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\newlib.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\newlib\system_libs.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\app_trace\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\bt\linker.lf;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ringbuf\RelWithDebInfo\libesp_ringbuf.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\efuse\RelWithDebInfo\libefuse.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ipc\RelWithDebInfo\libesp_ipc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\driver\RelWithDebInfo\libdriver.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_pm\RelWithDebInfo\libesp_pm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mbedtls\RelWithDebInfo\libmbedtls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_update\RelWithDebInfo\libapp_update.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\bootloader_support\RelWithDebInfo\libbootloader_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spi_flash\RelWithDebInfo\libspi_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nvs_flash\RelWithDebInfo\libnvs_flash.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\pthread\RelWithDebInfo\libpthread.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_gdbstub\RelWithDebInfo\libesp_gdbstub.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\espcoredump\RelWithDebInfo\libespcoredump.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_phy\RelWithDebInfo\libesp_phy.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\RelWithDebInfo\libesp_system.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_rom\RelWithDebInfo\libesp_rom.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\hal\RelWithDebInfo\libhal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\vfs\RelWithDebInfo\libvfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_eth\RelWithDebInfo\libesp_eth.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcpip_adapter\RelWithDebInfo\libtcpip_adapter.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_netif\RelWithDebInfo\libesp_netif.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_event\RelWithDebInfo\libesp_event.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wpa_supplicant\RelWithDebInfo\libwpa_supplicant.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_wifi\RelWithDebInfo\libesp_wifi.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\console\RelWithDebInfo\libconsole.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\lwip\RelWithDebInfo\liblwip.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\log\RelWithDebInfo\liblog.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\heap\RelWithDebInfo\libheap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\soc\RelWithDebInfo\libsoc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hw_support\RelWithDebInfo\libesp_hw_support.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\xtensa\RelWithDebInfo\libxtensa.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_common\RelWithDebInfo\libesp_common.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_timer\RelWithDebInfo\libesp_timer.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freertos\RelWithDebInfo\libfreertos.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\newlib\RelWithDebInfo\libnewlib.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cxx\RelWithDebInfo\libcxx.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\app_trace\RelWithDebInfo\libapp_trace.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\asio\RelWithDebInfo\libasio.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cbor\RelWithDebInfo\libcbor.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\unity\RelWithDebInfo\libunity.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cmock\RelWithDebInfo\libcmock.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\coap\RelWithDebInfo\libcoap.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\nghttp\RelWithDebInfo\libnghttp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp-tls\RelWithDebInfo\libesp-tls.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_adc_cal\RelWithDebInfo\libesp_adc_cal.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hid\RelWithDebInfo\libesp_hid.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\tcp_transport\RelWithDebInfo\libtcp_transport.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_client\RelWithDebInfo\libesp_http_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_http_server\RelWithDebInfo\libesp_http_server.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_https_ota\RelWithDebInfo\libesp_https_ota.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_lcd\RelWithDebInfo\libesp_lcd.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protobuf-c\RelWithDebInfo\libprotobuf-c.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protocomm\RelWithDebInfo\libprotocomm.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mdns\RelWithDebInfo\libmdns.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_local_ctrl\RelWithDebInfo\libesp_local_ctrl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\sdmmc\RelWithDebInfo\libsdmmc.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_serial_slave_link\RelWithDebInfo\libesp_serial_slave_link.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_websocket_client\RelWithDebInfo\libesp_websocket_client.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\expat\RelWithDebInfo\libexpat.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wear_levelling\RelWithDebInfo\libwear_levelling.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\fatfs\RelWithDebInfo\libfatfs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freemodbus\RelWithDebInfo\libfreemodbus.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\jsmn\RelWithDebInfo\libjsmn.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\json\RelWithDebInfo\libjson.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\libsodium\RelWithDebInfo\liblibsodium.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mqtt\RelWithDebInfo\libmqtt.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\openssl\RelWithDebInfo\libopenssl.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\perfmon\RelWithDebInfo\libperfmon.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spiffs\RelWithDebInfo\libspiffs.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\ulp\RelWithDebInfo\libulp.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wifi_provisioning\RelWithDebInfo\libwifi_provisioning.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\main\RelWithDebInfo\libmain.a;C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\sdkconfig;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\38b1889ce97ec57e25e1d5e854e915b2\__ldgen_output_sections.ld.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\ld\sections.ld;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Users\tayen\OneDrive\Documenten\esp\tools\cmake\3.20.3\bin\cmake.exe -SC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works -BC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build --check-stamp-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\ldgen_libraries.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\ld.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Users\tayen\OneDrive\Documenten\esp\tools\cmake\3.20.3\bin\cmake.exe -SC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works -BC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build --check-stamp-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\ldgen_libraries.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\ld.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\Users\tayen\OneDrive\Documenten\esp\tools\cmake\3.20.3\bin\cmake.exe -SC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works -BC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build --check-stamp-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\ldgen_libraries.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\ld.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\Users\tayen\OneDrive\Documenten\esp\tools\cmake\3.20.3\bin\cmake.exe -SC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works -BC:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build --check-stamp-file C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esp_system/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\ldgen_libraries.in;C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_system\ld\ld.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\ZERO_CHECK.vcxproj">
+      <Project>{79911EB6-8336-3A7F-9225-ACBCB67DCD9A}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\asio\__idf_asio.vcxproj">
+      <Project>{DC1A4DE8-3E97-3877-99B9-26945B3DA92A}</Project>
+      <Name>__idf_asio</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cbor\__idf_cbor.vcxproj">
+      <Project>{5B74DEC4-132E-3F30-9FE5-4924248CFD4A}</Project>
+      <Name>__idf_cbor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\cmock\__idf_cmock.vcxproj">
+      <Project>{1BDD2049-04CC-3C68-9433-E7AF89637DDA}</Project>
+      <Name>__idf_cmock</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\coap\__idf_coap.vcxproj">
+      <Project>{8B9D40CD-76E8-3D7F-8DA1-76D30B87B5E4}</Project>
+      <Name>__idf_coap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_adc_cal\__idf_esp_adc_cal.vcxproj">
+      <Project>{85A1DE6E-43D7-3194-A593-7F2244401AF7}</Project>
+      <Name>__idf_esp_adc_cal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_hid\__idf_esp_hid.vcxproj">
+      <Project>{8D5B5F3F-AC1B-392D-90FF-454199AC959F}</Project>
+      <Name>__idf_esp_hid</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_lcd\__idf_esp_lcd.vcxproj">
+      <Project>{3595C94E-334D-3D12-9385-B14DB4FE4C3A}</Project>
+      <Name>__idf_esp_lcd</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_local_ctrl\__idf_esp_local_ctrl.vcxproj">
+      <Project>{7C5C98E3-AB05-3E39-8C6B-47A69C9A2E24}</Project>
+      <Name>__idf_esp_local_ctrl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_ringbuf\__idf_esp_ringbuf.vcxproj">
+      <Project>{8B861971-1C0D-3747-A306-286CCBBBCF2B}</Project>
+      <Name>__idf_esp_ringbuf</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\esp_websocket_client\__idf_esp_websocket_client.vcxproj">
+      <Project>{2184C72C-98B4-3BCA-8714-19C710E80FDE}</Project>
+      <Name>__idf_esp_websocket_client</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\expat\__idf_expat.vcxproj">
+      <Project>{A39E3AF1-47F5-3D0C-9ACB-190C9439A60E}</Project>
+      <Name>__idf_expat</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\fatfs\__idf_fatfs.vcxproj">
+      <Project>{90B4B568-AC8C-359D-9B54-4905924A74FE}</Project>
+      <Name>__idf_fatfs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\freemodbus\__idf_freemodbus.vcxproj">
+      <Project>{C7FE3272-0EC9-3DE6-9E6B-7312001B8083}</Project>
+      <Name>__idf_freemodbus</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\jsmn\__idf_jsmn.vcxproj">
+      <Project>{2184AE97-3B61-3312-8422-1A4ED8D1CB3D}</Project>
+      <Name>__idf_jsmn</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\json\__idf_json.vcxproj">
+      <Project>{E90F84A3-56EF-344D-81CB-0BA74535131B}</Project>
+      <Name>__idf_json</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\libsodium\__idf_libsodium.vcxproj">
+      <Project>{40594A06-290E-30CD-89DA-50AF67EB6D87}</Project>
+      <Name>__idf_libsodium</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\main\__idf_main.vcxproj">
+      <Project>{3C76731E-87C6-324B-B4C3-D96538A9018B}</Project>
+      <Name>__idf_main</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mdns\__idf_mdns.vcxproj">
+      <Project>{DF597357-8135-37E2-AC61-2E40D478DF33}</Project>
+      <Name>__idf_mdns</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\mqtt\__idf_mqtt.vcxproj">
+      <Project>{429BF68D-BDCD-3B37-9DDD-8F83351E6CC9}</Project>
+      <Name>__idf_mqtt</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\openssl\__idf_openssl.vcxproj">
+      <Project>{0B01088D-173E-3D4B-B4F2-D9680455B263}</Project>
+      <Name>__idf_openssl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\perfmon\__idf_perfmon.vcxproj">
+      <Project>{73DFE254-307C-34C8-BBE2-A8BCDC533797}</Project>
+      <Name>__idf_perfmon</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protobuf-c\__idf_protobuf-c.vcxproj">
+      <Project>{C2A91B42-2D45-3E16-9AB5-79352EE4B546}</Project>
+      <Name>__idf_protobuf-c</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\protocomm\__idf_protocomm.vcxproj">
+      <Project>{55021EFB-E3F8-3F7F-9638-9A1DF9D18FDD}</Project>
+      <Name>__idf_protocomm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\spiffs\__idf_spiffs.vcxproj">
+      <Project>{FECCDD04-74F4-36F5-A221-439D45A457BD}</Project>
+      <Name>__idf_spiffs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\unity\__idf_unity.vcxproj">
+      <Project>{DCE255F1-B51F-37DE-B725-579B7A670C71}</Project>
+      <Name>__idf_unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wear_levelling\__idf_wear_levelling.vcxproj">
+      <Project>{A69AC22E-5BFC-3E29-B2A4-3E6EF9CACFDE}</Project>
+      <Name>__idf_wear_levelling</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\esp-idf\wifi_provisioning\__idf_wifi_provisioning.vcxproj">
+      <Project>{76C32A8E-50CB-34C9-9A08-BE27EEF447ED}</Project>
+      <Name>__idf_wifi_provisioning</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

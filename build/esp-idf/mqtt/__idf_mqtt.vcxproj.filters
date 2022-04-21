@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\mqtt\esp-mqtt\mqtt_client.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\mqtt\esp-mqtt\lib\mqtt_msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\mqtt\esp-mqtt\lib\mqtt_outbox.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\mqtt\esp-mqtt\lib\platform_esp32_idf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\mqtt\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8F0EED4-5CCF-3D4D-A4DF-18DD4D272103}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\0a569dd1ac5e5267d803f6292e1f5383\monitor.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\monitor" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D69B0A1B-77E3-3162-8DE9-0BC463418C01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

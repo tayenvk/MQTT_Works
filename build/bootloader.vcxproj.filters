@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\b5bb8e7a1b1a01e50f30428c52ede009\bootloader-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\3917f6a143365ecde0eab72405bf5a15\bootloader-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\0a569dd1ac5e5267d803f6292e1f5383\bootloader.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\tayen\OneDrive\Documenten\esp\PROJECTS\MQTT_Works\build\CMakeFiles\bootloader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D69B0A1B-77E3-3162-8DE9-0BC463418C01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

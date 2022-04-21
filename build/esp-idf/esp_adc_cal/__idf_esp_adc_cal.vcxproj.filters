@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_adc_cal\esp_adc_cal_esp32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\esp_adc_cal\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8F0EED4-5CCF-3D4D-A4DF-18DD4D272103}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

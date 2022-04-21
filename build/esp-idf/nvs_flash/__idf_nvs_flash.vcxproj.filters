@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_cxx_api.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_item_hash_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_page.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_pagemanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_storage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_handle_simple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_handle_locked.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_partition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_partition_lookup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_partition_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\src\nvs_types.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\nvs_flash\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8F0EED4-5CCF-3D4D-A4DF-18DD4D272103}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

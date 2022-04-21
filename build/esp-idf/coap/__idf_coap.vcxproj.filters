@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\async.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\block.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_cache.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_event.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_hashkey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_mbedtls.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_notls.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_prng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_session.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_tcp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\coap_time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\encode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\mem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\net.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\option.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\pdu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\resource.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\str.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\subscribe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\libcoap\src\uri.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\tayen\OneDrive\Documenten\esp\esp-idf\components\coap\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8F0EED4-5CCF-3D4D-A4DF-18DD4D272103}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt
+C:/Users/tayen/OneDrive/Documenten/esp/tools/cmake/3.20.3/share/cmake-3.20/Modules/FindCygwin.cmake
+C:/Users/tayen/OneDrive/Documenten/esp/tools/cmake/3.20.3/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/tayen/OneDrive/Documenten/esp/tools/cmake/3.20.3/share/cmake-3.20/Modules/FindPackageMessage.cmake
+C:/Users/tayen/OneDrive/Documenten/esp/tools/cmake/3.20.3/share/cmake-3.20/Modules/FindPerl.cmake
+C:/Users/tayen/OneDrive/Documenten/esp/tools/cmake/3.20.3/share/cmake-3.20/Modules/FindPythonInterp.cmake

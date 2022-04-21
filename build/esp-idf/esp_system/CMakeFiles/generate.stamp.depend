@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/ldgen_libraries.in
+C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/CMakeLists.txt
+C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esp_system/ld/ld.cmake
