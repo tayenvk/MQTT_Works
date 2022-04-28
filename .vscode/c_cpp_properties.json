@@ -10,6 +10,7 @@
                 "${config:idf.espIdfPathWin}/components/**",
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
+                "C:\\Users\\tayen\\OneDrive\\Documenten\\esp\\tools\\xtensa-esp32-elf\\esp-2021r2-patch2-8.4.0\\xtensa-esp32-elf\\include",
                 "${workspaceFolder}/**"
             ],
             "browse": {
@@ -18,6 +19,7 @@
                     "${config:idf.espIdfPathWin}/components",
                     "${config:idf.espAdfPath}/components/**",
                     "${config:idf.espAdfPathWin}/components/**",
+                    "${config:idf.espIdfPathWin}/components/",
                     "${workspaceFolder}"
                 ],
                 "limitSymbolsToIncludedHeaders": false

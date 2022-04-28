@@ -1,5 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/app-flash_args
-C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esptool_py/app-flash_args.in
-C:/Users/tayen/OneDrive/Documenten/esp/PROJECTS/MQTT_Works/build/esp-idf/esptool_py/flasher_args.json.in
-C:/Users/tayen/OneDrive/Documenten/esp/esp-idf/components/esptool_py/CMakeLists.txt

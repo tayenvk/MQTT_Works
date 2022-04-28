@@ -29,6 +29,12 @@
 #include "rom/ets_sys.h"
 #include "nvs_flash.h"
 #include "DHT.h"
+#include "driver/mcpwm.h"
+#include <time.h>
+#include <sys/time.h>
+#include "esp_sleep.h"
+#include "driver/uart.h"
+#include "esp_timer.h"
 
 //pump input
 #define pump_gpio (21)
@@ -76,6 +82,23 @@ static esp_adc_cal_characteristics_t adc1_3_chars;
 static esp_adc_cal_characteristics_t adc2_chars;
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+#define BUTTON_GPIO_NUM_DEFAULT     0
+#define BUTTON_WAKEUP_LEVEL_DEFAULT     0
+
+static const char *TAG_servo = "example";
+
+// You can get these value from the datasheet of servo you use, in general pulse width varies between 1000 to 2000 mocrosecond
+#define SERVO_MIN_PULSEWIDTH_US (575) // Minimum pulse width in microsecond
+#define SERVO_MAX_PULSEWIDTH_US (2460) // Maximum pulse width in microsecond
+#define SERVO_MAX_DEGREE        (200)   // Maximum angle in degree upto which servo can rotate
+
+#define SERVO_PULSE_GPIO        (12)   // GPIO connects to the PWM signal line   
+
 
 static const char *TAGE = "MQTT_TCP";
 
@@ -133,7 +156,14 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(TAGE, "MQTT_EVENT_CONNECTED");
         esp_mqtt_client_subscribe(client, "ESP32/LEDOUTPUT", 0);
-        esp_mqtt_client_publish(client, "ESP32/TEXT", "This is data from the ESP32", 0, 1, 0);
+        uint8_t mac[6];
+    char macStr[18] = { 0 };
+    esp_wifi_get_mac(WIFI_IF_STA, mac);
+
+    sprintf(macStr, "%X:%X:%X:%X:%X:%X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    printf(macStr, "%X:%X:%X:%X:%X:%X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+        esp_mqtt_client_publish(client, "ESP32/espID", macStr, 0, 1, 0);
+        
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAGE, "MQTT_EVENT_DISCONNECTED");
@@ -158,9 +188,9 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
         
 
         if(strcmp(str,"DATA=1")==0){
-            gpio_set_level(GPIO_NUM_21, 1);
+            gpio_set_level(GPIO_NUM_23, 1);
         } else if(strcmp(str,"DATA=0")==0){
-            gpio_set_level(GPIO_NUM_21, 0);
+            gpio_set_level(GPIO_NUM_23, 0);
         }
         
         
@@ -240,22 +270,44 @@ void DHT_task(void *pvParameter)
         
         errorHandler(ret);
 
-        printf( "Hum %.1f\n", getHumidity() );
-        printf( "Tmp %.1f\n", getTemperature() );
-        esp_mqtt_client_publish(client,"ESP32/TEXT", "iets van HUM of TEMP ", 0, 1, 0);
+        char temp[50];
+        char hum[50];
+        sprintf( temp,"%.1f\n", getHumidity() );
+        sprintf(hum, "%.1f\n", getTemperature() );
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "5", 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/value", temp, 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "6", 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/value", hum, 0, 1, 0);
         
         // -- wait at least 2 sec before reading again ------------
         // The interval of whole process must be beyond 2 seconds !! 
-        vTaskDelay( 3000 / portTICK_RATE_MS );
+        vTaskDelay( 200000 / portTICK_RATE_MS );
     }
 }
 
 
 
+static inline uint32_t example_convert_servo_angle_to_duty_us(int angle)
+{
+    return (angle + SERVO_MAX_DEGREE) * (SERVO_MAX_PULSEWIDTH_US - SERVO_MIN_PULSEWIDTH_US) / (2 * SERVO_MAX_DEGREE) + SERVO_MIN_PULSEWIDTH_US;
+}
+
+
 void app_main(void)
 {   
+    const int button_gpio_num = BUTTON_GPIO_NUM_DEFAULT;
+    const int wakeup_level = BUTTON_WAKEUP_LEVEL_DEFAULT;
+    gpio_config_t config = {
+            .pin_bit_mask = BIT64(button_gpio_num),
+            .mode = GPIO_MODE_INPUT
+    };
+    ESP_ERROR_CHECK(gpio_config(&config));
+    gpio_wakeup_enable(button_gpio_num,
+            wakeup_level == 0 ? GPIO_INTR_LOW_LEVEL : GPIO_INTR_HIGH_LEVEL);
+
+
     adc_init();
-    gpio_set_direction(GPIO_NUM_21, GPIO_MODE_OUTPUT);
+    gpio_set_direction(GPIO_NUM_23, GPIO_MODE_OUTPUT);
     nvs_flash_init();
 
 
@@ -265,75 +317,168 @@ void app_main(void)
 
     mqtt_app_start();
 
-    //vTaskDelay( 1000 / portTICK_RATE_MS );
-	//xTaskCreate( &DHT_task, "DHT_task", 2048, NULL, 5, NULL );
+    vTaskDelay( 1000 / portTICK_RATE_MS );
+	xTaskCreate( &DHT_task, "DHT_task", 2048, NULL, 5, NULL );
+   
+    ///////
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, SERVO_PULSE_GPIO); // To drive a RC servo, one MCPWM generator is enough
+
+
+    mcpwm_config_t pwm_config = {
+        .frequency = 50, // frequency = 50Hz, i.e. for every servo motor time period should be 20ms
+        .cmpr_a = 0,     // duty cycle of PWMxA = 0
+        .counter_mode = MCPWM_UP_COUNTER,
+        .duty_mode = MCPWM_DUTY_MODE_0,
+    };
+    mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
+    /////////////
 
     esp_err_t ret = ESP_OK;
-    uint32_t voltage = 0;
+    uint32_t voltage0 = 0;
+    uint32_t voltage1=0;
+    uint32_t voltage2=0;
+    uint32_t voltage3=0;
     bool cali_enable = adc_calibration_init();
     char str0[50];
     char str1[50];
     char str2[50];
     char str3[50];
-
-    uint8_t chipid[6];
-    esp_efuse_read_mac(chipid);
+    uint32_t counter=0;
+    bool pos=0;
 
 
     while (1) {
+        
         adc_raw[0][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN0); //moisture sensor to control the pump
         ESP_LOGI(TAG_CH[0][0], "raw  data: %d", adc_raw[0][0]);
-        //if(adc_raw[0][0]>2500)
+        
         //{pump_in_state=1;gpio_set_level(GPIO_NUM_21, 1); printf("pump on");}
         //else
         //{pump_in_state=0;gpio_set_level(pump_gpio, pump_in_state);printf("pump off");}
 
         if (cali_enable) {
-            voltage = esp_adc_cal_raw_to_voltage(adc_raw[0][0], &adc1_chars);
-            ESP_LOGI(TAG_CH[0][0], "cali data: %d mV", voltage);
-            sprintf(str0,"ADC0 value: %d",voltage);
+            voltage0 = esp_adc_cal_raw_to_voltage(adc_raw[0][0], &adc1_chars);
+            ESP_LOGI(TAG_CH[0][0], "cali data: %d mV", voltage0);
+            sprintf(str0,"%d",voltage0);
             esp_mqtt_client_publish(client,"ESP32/value", str0, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/espID", chipid, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", 0, 0, 1, 0);
+            
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "0", 0, 1, 0);
 
         }
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(800));
 
 
         adc_raw[1][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN1);
         ESP_LOGI(TAG_CH[1][0], "raw  data: %d", adc_raw[1][0]);
         if (cali_enable) {
-            voltage = esp_adc_cal_raw_to_voltage(adc_raw[1][0], &adc1_1_chars);
-            ESP_LOGI(TAG_CH[1][0], "cali data: %d mV", voltage);
-            sprintf(str1,"ADC1 value: %d",voltage);
+            voltage1 = esp_adc_cal_raw_to_voltage(adc_raw[1][0], &adc1_1_chars);
+            ESP_LOGI(TAG_CH[1][0], "cali data: %d mV", voltage1);
+            sprintf(str1,"%d",voltage1);
             esp_mqtt_client_publish(client,"ESP32/value", str1, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/espID", chipid, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", 1, 0, 1, 0);
+            
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
         }
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(800));
 
-        adc_raw[2][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN2);
+        adc_raw[2][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN2);//light sensor1
         ESP_LOGI(TAG_CH[2][0], "raw  data: %d", adc_raw[2][0]);
         if (cali_enable) {
-            voltage = esp_adc_cal_raw_to_voltage(adc_raw[2][0], &adc1_2_chars);
-            ESP_LOGI(TAG_CH[2][0], "cali data: %d mV", voltage);
-            sprintf(str2,"ADC2 value: %d",voltage);
+            voltage2 = esp_adc_cal_raw_to_voltage(adc_raw[2][0], &adc1_2_chars);
+            ESP_LOGI(TAG_CH[2][0], "cali data: %d mV", voltage2);
+            sprintf(str2,"%d",voltage2);
             esp_mqtt_client_publish(client,"ESP32/value",str2, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/espID", chipid, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", 2, 0, 1, 0);
+            
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "2", 0, 1, 0);
         }
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(800));
 
-        adc_raw[3][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN3);
+        adc_raw[3][0] = adc1_get_raw(ADC1_EXAMPLE_CHAN3);//light sensor2
         ESP_LOGI(TAG_CH[3][0], "raw  data: %d", adc_raw[3][0]);
         if (cali_enable) {
-            voltage = esp_adc_cal_raw_to_voltage(adc_raw[3][0], &adc1_3_chars);
-            ESP_LOGI(TAG_CH[3][0], "cali data: %d mV", voltage);
-            sprintf(str3,"ADC3 value: %d",voltage);
+            voltage3 = esp_adc_cal_raw_to_voltage(adc_raw[3][0], &adc1_3_chars);
+            ESP_LOGI(TAG_CH[3][0], "cali data: %d mV", voltage3);
+            sprintf(str3,"%d",voltage3);
             esp_mqtt_client_publish(client, "ESP32/value",str3, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/espID", chipid, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", 3, 0, 1, 0);
+            
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
         }
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(800));
+        /////SERVO
+        
+        int angle;
+
+        if(pos==0){
+        counter=counter+voltage2+voltage3;
+        if(counter>500000){
+            printf("threshold light reached 500V in total \n");
+            counter=0;
+            pos=1;
+            angle=0;
+            ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
+            ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
+            vTaskDelay(pdMS_TO_TICKS(600)); 
+        }
+        } else if(pos==1){
+        counter=counter+voltage2+voltage3;
+        if(counter>500000){
+            printf("threshold light reached 500V in total \n");
+            counter=0;
+            pos=0;
+            angle=200;
+            ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
+            ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
+            vTaskDelay(pdMS_TO_TICKS(600)); 
+            }
+        }
+        /////check if water reservoir is still full enough 
+
+
+        ////
+        /////////////////light_sleep mode
+        /* Wake up in 2 seconds, or when button is pressed */
+        esp_sleep_enable_timer_wakeup(6000000);
+        esp_sleep_enable_gpio_wakeup();
+
+        /* Wait until GPIO goes high */
+        if (gpio_get_level(button_gpio_num) == wakeup_level) {
+            printf("Waiting for GPIO%d to go high...\n", button_gpio_num);
+            do {
+                vTaskDelay(pdMS_TO_TICKS(10));
+            } while (gpio_get_level(button_gpio_num) == wakeup_level);
+        }
+
+        printf("Entering light sleep\n");
+        /* To make sure the complete line is printed before entering sleep mode,
+         * need to wait until UART TX FIFO is empty:
+         */
+        uart_wait_tx_idle_polling(CONFIG_ESP_CONSOLE_UART_NUM);
+
+        /* Get timestamp before entering sleep */
+        int64_t t_before_us = esp_timer_get_time();
+
+        /* Enter sleep mode */
+        esp_light_sleep_start();
+        /* Execution continues here after wakeup */
+
+        /* Get timestamp after waking up from sleep */
+        int64_t t_after_us = esp_timer_get_time();
+
+        /* Determine wake up reason */
+        const char* wakeup_reason;
+        switch (esp_sleep_get_wakeup_cause()) {
+            case ESP_SLEEP_WAKEUP_TIMER:
+                wakeup_reason = "timer";
+                break;
+            case ESP_SLEEP_WAKEUP_GPIO:
+                wakeup_reason = "pin";
+                break;
+            default:
+                wakeup_reason = "other";
+                break;
+        }
+
+        printf("Returned from light sleep, reason: %s, t=%lld ms, slept for %lld ms\n",
+                wakeup_reason, t_after_us / 1000, (t_after_us - t_before_us) / 1000);
+   
     }
 }
