@@ -117,8 +117,8 @@ void wifi_connection()
     esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL);
     wifi_config_t wifi_configuration = {
         .sta = {
-            .ssid = "ONEPLUS_6T_joachim",
-            .password = "ee5veryfun"}};
+            .ssid = "telenet-ap-4783693",
+            .password = "W2jukep3bnkh"}};
     esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_configuration);
     // 3 - Wi-Fi Start Phase
     esp_wifi_start();
@@ -218,7 +218,7 @@ static bool adc_calibration_init(void)
         esp_adc_cal_characterize(ADC_UNIT_1, ADC_EXAMPLE_ATTEN, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_1_chars);
         esp_adc_cal_characterize(ADC_UNIT_1, ADC_EXAMPLE_ATTEN, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_2_chars);
         esp_adc_cal_characterize(ADC_UNIT_1, ADC_EXAMPLE_ATTEN, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_3_chars);
-        esp_adc_cal_characterize(ADC_UNIT_2, ADC_EXAMPLE_ATTEN, ADC_WIDTH_BIT_DEFAULT, 0, &adc2_chars);
+        
     } else {
         ESP_LOGE(TAG, "Invalid arg");
     }
@@ -233,8 +233,7 @@ void adc_init(void){
     ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_EXAMPLE_CHAN1, ADC_EXAMPLE_ATTEN));
     ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_EXAMPLE_CHAN2, ADC_EXAMPLE_ATTEN));
     ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_EXAMPLE_CHAN3, ADC_EXAMPLE_ATTEN));
-    //ADC2 config
-    ESP_ERROR_CHECK(adc2_config_channel_atten(ADC2_EXAMPLE_CHAN0, ADC_EXAMPLE_ATTEN));
+    
 
 }
 
@@ -274,7 +273,7 @@ static inline uint32_t example_convert_servo_angle_to_duty_us(int angle)
 
 void app_main(void)
 {   
-    
+    nvs_flash_init();
 
     //start wifi
     wifi_connection();
