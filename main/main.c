@@ -71,8 +71,8 @@ static const char *TAG_CH[2][10] = {{"ADC1_CH2"}, {"ADC1_CH0"},{"ADC1_CH3"},{"AD
 #define SERVO_MAX_PULSEWIDTH_US (2460) // Maximum pulse width in microsecond
 #define SERVO_MAX_DEGREE        (200)   // Maximum angle in degree upto which servo can rotate
 #define SERVO_PULSE_GPIO        (12)   // GPIO connects to the PWM signal line   
-#define EXAMPLE_ESP_WIFI_SSID      "telenet-ap-4783693"
-#define EXAMPLE_ESP_WIFI_PASS      "W2jukep3bnkh"
+#define EXAMPLE_ESP_WIFI_SSID      "ONEPLUS_6T_joachim"
+#define EXAMPLE_ESP_WIFI_PASS      "ee5veryfun"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  10
 /* The event group allows multiple bits for each event, but we only care about two events:
  * - we are connected to the AP with an IP
@@ -86,6 +86,7 @@ static uint8_t pump_in_state = 0;
 static const char *TAG = "ADC SINGLE";
 static const char *TAG_servo = "example";
 static const char *TAGE = "MQTT_TCP";
+static uint32_t counter=0;
 esp_mqtt_client_handle_t client;
 static esp_adc_cal_characteristics_t adc1_chars;
 static esp_adc_cal_characteristics_t adc1_1_chars;
@@ -196,6 +197,7 @@ void wifi_init_sta(void)
 static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 {
     char str[50];
+    char str2[50];
     client = event->client;
     switch (event->event_id)
     
@@ -208,7 +210,7 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
     esp_wifi_get_mac(WIFI_IF_STA, mac);
 
     sprintf(macStr, "%X:%X:%X:%X:%X:%X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-    printf(macStr, "%X:%X:%X:%X:%X:%X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    printf(macStr, "%X:%X:%X:%X:%X:%X \n", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
         esp_mqtt_client_publish(client, "ESP32/espID", macStr, 0, 1, 0);
         
         break;
@@ -227,16 +229,17 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAGE, "MQTT_EVENT_DATA");
         printf("\nTOPIC=%.*s\r\n", event->topic_len, event->topic);
+        sprintf(str2,"\nTOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
 
         sprintf(str,"DATA=%.*s", event->data_len, event->data);
         
         
-        
+
 
         if(strcmp(str,"DATA=1")==0){
             gpio_set_level(GPIO_NUM_23, 1);
-        } else if(strcmp(str,"DATA=0")==0){
+        }  if(strcmp(str,"DATA=0")==0){
             gpio_set_level(GPIO_NUM_23, 0);
         }
         
@@ -262,7 +265,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
-        .uri = "mqtt://192.168.0.105",//here you have
+        .uri = "mqtt://test.mosquitto.org",//here you have
     };
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, client);
@@ -340,7 +343,20 @@ static inline uint32_t example_convert_servo_angle_to_duty_us(int angle)
 
 void app_main(void)
 {   
-    nvs_flash_init();
+    //variables
+    esp_err_t ret = ESP_OK;
+    uint32_t voltage0 = 0;
+    uint32_t voltage1=0;
+    uint32_t voltage2=0;
+    uint32_t voltage3=0;
+    bool cali_enable = adc_calibration_init();
+    char str0[50];
+    char str1[50];
+    char str2[50];
+    char str3[50];
+    
+    bool pos=0;
+    
 
     //Initialize NVS
     esp_err_t retu = nvs_flash_init();
@@ -353,19 +369,7 @@ void app_main(void)
     ESP_LOGI(TAGG, "ESP_WIFI_MODE_STA");
     wifi_init_sta();
 
-    //variables
-    esp_err_t ret = ESP_OK;
-    uint32_t voltage0 = 0;
-    uint32_t voltage1=0;
-    uint32_t voltage2=0;
-    uint32_t voltage3=0;
-    bool cali_enable = adc_calibration_init();
-    char str0[50];
-    char str1[50];
-    char str2[50];
-    char str3[50];
-    uint32_t counter=0;
-    bool pos=0;
+    
 
     //sleep configuration
     const int button_gpio_num = BUTTON_GPIO_NUM_DEFAULT;
@@ -461,7 +465,7 @@ void app_main(void)
 
         if(pos==0){
         counter=counter+voltage2+voltage3;
-        if(counter>500000){
+        if(counter>10000){
             printf("threshold light reached 500V in total \n");
             counter=0;
             pos=1;
@@ -472,7 +476,7 @@ void app_main(void)
         }
         } else if(pos==1){
         counter=counter+voltage2+voltage3;
-        if(counter>500000){
+        if(counter>10000){
             printf("threshold light reached 500V in total \n");
             counter=0;
             pos=0;
@@ -482,6 +486,10 @@ void app_main(void)
             vTaskDelay(pdMS_TO_TICKS(600)); 
             }
         }
+
+    
+        
+
         //check water levels
         if(voltage0<1000){//soil moisture
             gpio_set_level(GPIO_NUM_21, 1); printf("pump on \n");
@@ -552,10 +560,11 @@ void app_main(void)
                 wakeup_reason = "other";
                 break;
         }
+        
         wifi_init_sta();
         vTaskDelay(pdMS_TO_TICKS(5000)); 
         
-
+        
         printf("Returned from light sleep, reason: %s, t=%lld ms, slept for %lld ms\n",
                 wakeup_reason, t_after_us / 1000, (t_after_us - t_before_us) / 1000);
 
