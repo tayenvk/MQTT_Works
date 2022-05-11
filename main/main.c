@@ -71,8 +71,8 @@ static const char *TAG_CH[2][10] = {{"ADC1_CH2"}, {"ADC1_CH0"},{"ADC1_CH3"},{"AD
 #define SERVO_MAX_PULSEWIDTH_US (2460) // Maximum pulse width in microsecond
 #define SERVO_MAX_DEGREE        (200)   // Maximum angle in degree upto which servo can rotate
 #define SERVO_PULSE_GPIO        (12)   // GPIO connects to the PWM signal line   
-#define EXAMPLE_ESP_WIFI_SSID      "ONEPLUS_6T_joachim"
-#define EXAMPLE_ESP_WIFI_PASS      "ee5veryfun"
+#define EXAMPLE_ESP_WIFI_SSID      "iPhone van Matthia"
+#define EXAMPLE_ESP_WIFI_PASS      "manzini4"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  10
 /* The event group allows multiple bits for each event, but we only care about two events:
  * - we are connected to the AP with an IP
@@ -252,24 +252,29 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
         ESP_LOGI(TAGE, "Other event id:%d", event->event_id);
         break;
     }
-
+    
     return ESP_OK;
+    
 }
 
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
-{
+{   
+    
     ESP_LOGD(TAGE, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
     mqtt_event_handler_cb(event_data);
+    
 }
 
 static void mqtt_app_start(void)
 {
+    
     esp_mqtt_client_config_t mqtt_cfg = {
         .uri = "mqtt://test.mosquitto.org",//here you have
     };
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, client);
     esp_mqtt_client_start(client);
+    
 }
 
 static bool adc_calibration_init(void)
@@ -487,8 +492,9 @@ void app_main(void)
             }
         }
 
+        printf("counter value %d \n",counter);
+
     
-        
 
         //check water levels
         if(voltage0<1000){//soil moisture
@@ -499,6 +505,7 @@ void app_main(void)
 
         if(voltage1<1000){
             esp_mqtt_client_publish(client, "ESP32/tank", "water lvl low! \n", 0, 1, 0);
+            printf("water lvl low in tank low! \n");
         }
 
 
@@ -517,25 +524,29 @@ void app_main(void)
             gpio_set_level(GPIO_NUM_32, 0);
         }
 
-        
-//light_sleep mode
+
+        esp_mqtt_client_disconnect(client);
+        esp_mqtt_client_stop(client);
+        vTaskDelay(1000);
+        esp_wifi_disconnect();
+        esp_wifi_stop();
+        vTaskDelay(1000);
+
+        //light_sleep mode
         /* Wake up in 2 seconds, or when button is pressed */
         esp_sleep_enable_timer_wakeup(6000000);
-        esp_sleep_enable_gpio_wakeup();
+        esp_sleep_enable_wifi_wakeup();
 
-        /* Wait until GPIO goes high */
-        if (gpio_get_level(button_gpio_num) == wakeup_level) {
-            printf("Waiting for GPIO%d to go high...\n", button_gpio_num);
-            do {
-                vTaskDelay(pdMS_TO_TICKS(10));
-            } while (gpio_get_level(button_gpio_num) == wakeup_level);
-        }
+
+        
 
         printf("Entering light sleep\n");
         /* To make sure the complete line is printed before entering sleep mode,
          * need to wait until UART TX FIFO is empty:
          */
         uart_wait_tx_idle_polling(CONFIG_ESP_CONSOLE_UART_NUM);
+
+        
 
         /* Get timestamp before entering sleep */
         int64_t t_before_us = esp_timer_get_time();
@@ -556,19 +567,30 @@ void app_main(void)
             case ESP_SLEEP_WAKEUP_GPIO:
                 wakeup_reason = "pin";
                 break;
+            case ESP_SLEEP_WAKEUP_WIFI:
+                wakeup_reason = "wifi";
+                break;    
             default:
                 wakeup_reason = "other";
                 break;
         }
-        
-        wifi_init_sta();
-        vTaskDelay(pdMS_TO_TICKS(5000)); 
-        
-        
         printf("Returned from light sleep, reason: %s, t=%lld ms, slept for %lld ms\n",
                 wakeup_reason, t_after_us / 1000, (t_after_us - t_before_us) / 1000);
+
+       
+        esp_wifi_start();
+        esp_wifi_connect();
+        vTaskDelay(1000);
+        esp_mqtt_client_start(client);
+        esp_mqtt_client_reconnect(client);
+       
+
+        
+        
+        
 
         
    
     }
+        
 }
