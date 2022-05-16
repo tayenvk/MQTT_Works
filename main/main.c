@@ -71,8 +71,8 @@ static const char *TAG_CH[2][10] = {{"ADC1_CH2"}, {"ADC1_CH0"},{"ADC1_CH3"},{"AD
 #define SERVO_MAX_PULSEWIDTH_US (2460) // Maximum pulse width in microsecond
 #define SERVO_MAX_DEGREE        (200)   // Maximum angle in degree upto which servo can rotate
 #define SERVO_PULSE_GPIO        (12)   // GPIO connects to the PWM signal line   
-#define EXAMPLE_ESP_WIFI_SSID      "iPhone van Matthia"
-#define EXAMPLE_ESP_WIFI_PASS      "manzini4"
+#define EXAMPLE_ESP_WIFI_SSID      "OnePlus 5T"
+#define EXAMPLE_ESP_WIFI_PASS      "Kanye8888"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  10
 /* The event group allows multiple bits for each event, but we only care about two events:
  * - we are connected to the AP with an IP
@@ -87,6 +87,13 @@ static const char *TAG = "ADC SINGLE";
 static const char *TAG_servo = "example";
 static const char *TAGE = "MQTT_TCP";
 static uint32_t counter=0;
+static int thres_temp=0;
+static int thres_hum=10;
+static int thres_moist=500;
+static int sleepTime=6;
+static int rotateAngle;
+static int rotate=0;
+static int score=0;
 esp_mqtt_client_handle_t client;
 static esp_adc_cal_characteristics_t adc1_chars;
 static esp_adc_cal_characteristics_t adc1_1_chars;
@@ -196,22 +203,29 @@ void wifi_init_sta(void)
 
 static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 {
-    char str[50];
-    char str2[50];
+    char dataStr[50];
+    char topicStr[50];
     client = event->client;
     switch (event->event_id)
     
     {
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(TAGE, "MQTT_EVENT_CONNECTED");
-        esp_mqtt_client_subscribe(client, "ESP32/LEDOUTPUT", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/LEDOUTPUT", 0);//needed still?
+        esp_mqtt_client_subscribe(client, "ESP32/water", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/rotate", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/sleep", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/moisture", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/temperature", 0);
+        esp_mqtt_client_subscribe(client, "ESP32/humidity", 0);
+
         uint8_t mac[6];
     char macStr[18] = { 0 };
     esp_wifi_get_mac(WIFI_IF_STA, mac);
 
     sprintf(macStr, "%X:%X:%X:%X:%X:%X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-    printf(macStr, "%X:%X:%X:%X:%X:%X \n", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-        esp_mqtt_client_publish(client, "ESP32/espID", macStr, 0, 1, 0);
+    printf(macStr, "\n%X:%X:%X:%X:%X:%X \n\n", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    esp_mqtt_client_publish(client, "ESP32/espID", macStr, 0, 1, 0);
         
         break;
     case MQTT_EVENT_DISCONNECTED:
@@ -228,20 +242,50 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAGE, "MQTT_EVENT_DATA");
+
         printf("\nTOPIC=%.*s\r\n", event->topic_len, event->topic);
-        sprintf(str2,"\nTOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
 
-        sprintf(str,"DATA=%.*s", event->data_len, event->data);
+        sprintf(topicStr,"TOPIC=%.*s", event->topic_len, event->topic);
+        sprintf(dataStr,"%.*s", event->data_len, event->data);
         
-        
-
-
-        if(strcmp(str,"DATA=1")==0){
-            gpio_set_level(GPIO_NUM_23, 1);
-        }  if(strcmp(str,"DATA=0")==0){
-            gpio_set_level(GPIO_NUM_23, 0);
+        if(strcmp(topicStr,"TOPIC=ESP32/water")==0){
+            if(strcmp(dataStr,"1")==0){
+                gpio_set_level(GPIO_NUM_23, 1);
+            }  
+            if(strcmp(dataStr,"0")==0){
+                gpio_set_level(GPIO_NUM_23, 0);
+            }
         }
+
+        if(strcmp(topicStr,"TOPIC=ESP32/rotate")==0){
+            rotateAngle= atoi(dataStr);
+            rotate=1;
+            printf("test\n\n");
+        }
+
+        if(strcmp(topicStr,"TOPIC=ESP32/temperature")==0){
+            thres_temp= atoi(dataStr);
+            printf("test\n\n");
+        }
+
+        if(strcmp(topicStr,"TOPIC=ESP32/sleep")==0){
+            sleepTime= atoi(dataStr);
+            printf("test\n\n");
+        }
+
+        if(strcmp(topicStr,"TOPIC=ESP32/humidity")==0){
+            thres_hum= atoi(dataStr);
+            printf("test\n\n");
+        }
+
+        if(strcmp(topicStr,"TOPIC=ESP32/moisture")==0){
+            thres_moist= atoi(dataStr);
+            printf("test\n\n");
+        }
+        
+
+
         
         
         break;
@@ -319,22 +363,31 @@ void DHT_task(void *pvParameter)
     while(1) {
     
         printf("=== Reading DHT ===\n" );
-        int ret = readDHT();
+        readDHT();
         
-        errorHandler(ret);
 
         char temp[50];
         char hum[50];
         sprintf( temp,"%.1f\n", getHumidity() );
         sprintf(hum, "%.1f\n", getTemperature() );
-        esp_mqtt_client_publish(client,"ESP32/sensorID", "4", 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
         esp_mqtt_client_publish(client,"ESP32/value", temp, 0, 1, 0);
-        esp_mqtt_client_publish(client,"ESP32/sensorID", "5", 0, 1, 0);
+        if((temp+15)<(15+thres_temp) && (temp-15)>(15-thres_temp)){
+            score++;
+        } else{
+            score++;
+        }
+        vTaskDelay( 1000 / portTICK_RATE_MS );
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
         esp_mqtt_client_publish(client,"ESP32/value", hum, 0, 1, 0);
-        
+        if(hum<thres_hum){
+            score++;
+        } else{
+            score--;
+        }
         // -- wait at least 2 sec before reading again ------------
         // The interval of whole process must be beyond 2 seconds !! 
-        vTaskDelay( 200000 / portTICK_RATE_MS );
+        vTaskDelay( 20000 / portTICK_RATE_MS );
     }
 }
 
@@ -359,7 +412,7 @@ void app_main(void)
     char str1[50];
     char str2[50];
     char str3[50];
-    
+    int angle=0;
     bool pos=0;
     
 
@@ -374,7 +427,6 @@ void app_main(void)
     ESP_LOGI(TAGG, "ESP_WIFI_MODE_STA");
     wifi_init_sta();
 
-    
 
     //sleep configuration
     const int button_gpio_num = BUTTON_GPIO_NUM_DEFAULT;
@@ -426,7 +478,7 @@ void app_main(void)
             ESP_LOGI(TAG_CH[0][0], "cali data: %d mV", voltage0);
             sprintf(str0,"%d",voltage0);
             esp_mqtt_client_publish(client,"ESP32/value", str0, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "0", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "2", 0, 1, 0);
         }
         vTaskDelay(pdMS_TO_TICKS(800));
 
@@ -438,7 +490,7 @@ void app_main(void)
             ESP_LOGI(TAG_CH[1][0], "cali data: %d mV", voltage1);
             sprintf(str1,"%d",voltage1);
             esp_mqtt_client_publish(client,"ESP32/value", str1, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "6", 0, 1, 0);
         }
         vTaskDelay(pdMS_TO_TICKS(800));
 
@@ -449,7 +501,7 @@ void app_main(void)
             ESP_LOGI(TAG_CH[2][0], "cali data: %d mV", voltage2);
             sprintf(str2,"%d",voltage2);
             esp_mqtt_client_publish(client,"ESP32/value",str2, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "2", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "4", 0, 1, 0);
         }
         vTaskDelay(pdMS_TO_TICKS(800));
 
@@ -460,13 +512,21 @@ void app_main(void)
             ESP_LOGI(TAG_CH[3][0], "cali data: %d mV", voltage3);
             sprintf(str3,"%d",voltage3);
             esp_mqtt_client_publish(client, "ESP32/value",str3, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "5", 0, 1, 0);
         }
         vTaskDelay(pdMS_TO_TICKS(800));
         
         
         //SERVO turn 
-        int angle;
+        if(rotate==1){
+            angle= angle + rotateAngle;
+            ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
+            ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
+            rotate=0;
+            vTaskDelay(pdMS_TO_TICKS(100)); 
+        }
+
+
 
         if(pos==0){
         counter=counter+voltage2+voltage3;
@@ -497,24 +557,30 @@ void app_main(void)
     
 
         //check water levels
-        if(voltage0<1000){//soil moisture
+        if(voltage0<thres_moist){//soil moisture
             gpio_set_level(GPIO_NUM_21, 1); printf("pump on \n");
             vTaskDelay(pdMS_TO_TICKS(1000));
             gpio_set_level(pump_gpio, pump_in_state);printf("pump off \n");
+            score--;
+        }else {
+            score++;
         }
 
-        if(voltage1<1000){
+        if(voltage1<1000){//tank level
             esp_mqtt_client_publish(client, "ESP32/tank", "water lvl low! \n", 0, 1, 0);
             printf("water lvl low in tank low! \n");
+            score--;
+        } else{
+            score++;
         }
 
 
         //update LED status
-        if(voltage0<1000 && voltage1<1000 ){
+        if(score<=3){
             gpio_set_level(GPIO_NUM_33, 1);
             gpio_set_level(GPIO_NUM_15, 1);
             gpio_set_level(GPIO_NUM_32, 1);
-        } else if(voltage0<1000 && voltage1<1000 ){
+        } else if(score==2){
             gpio_set_level(GPIO_NUM_33, 1);
             gpio_set_level(GPIO_NUM_15, 1);
             gpio_set_level(GPIO_NUM_32, 0);
@@ -527,14 +593,15 @@ void app_main(void)
 
         esp_mqtt_client_disconnect(client);
         esp_mqtt_client_stop(client);
-        vTaskDelay(1000);
+        vTaskDelay(200);
         esp_wifi_disconnect();
         esp_wifi_stop();
-        vTaskDelay(1000);
+        vTaskDelay(200);
 
+        printf("sleepTime atm %d\n ",sleepTime);
         //light_sleep mode
-        /* Wake up in 2 seconds, or when button is pressed */
-        esp_sleep_enable_timer_wakeup(6000000);
+        // Wake up in 6 seconds
+        esp_sleep_enable_timer_wakeup(sleepTime*1000000);
         esp_sleep_enable_wifi_wakeup();
 
 
@@ -580,7 +647,7 @@ void app_main(void)
        
         esp_wifi_start();
         esp_wifi_connect();
-        vTaskDelay(1000);
+        vTaskDelay(500);
         esp_mqtt_client_start(client);
         esp_mqtt_client_reconnect(client);
        
