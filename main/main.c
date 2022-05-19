@@ -71,8 +71,8 @@ static const char *TAG_CH[2][10] = {{"ADC1_CH2"}, {"ADC1_CH0"},{"ADC1_CH3"},{"AD
 #define SERVO_MAX_PULSEWIDTH_US (2460) // Maximum pulse width in microsecond
 #define SERVO_MAX_DEGREE        (200)   // Maximum angle in degree upto which servo can rotate
 #define SERVO_PULSE_GPIO        (12)   // GPIO connects to the PWM signal line   
-#define EXAMPLE_ESP_WIFI_SSID      "OnePlus 5T"
-#define EXAMPLE_ESP_WIFI_PASS      "Kanye8888"
+#define EXAMPLE_ESP_WIFI_SSID      "ONEPLUS_6T_joachim"
+#define EXAMPLE_ESP_WIFI_PASS      "ee5veryfun"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  10
 /* The event group allows multiple bits for each event, but we only care about two events:
  * - we are connected to the AP with an IP
@@ -93,7 +93,10 @@ static int thres_moist=500;
 static int sleepTime=6;
 static int rotateAngle;
 static int rotate=0;
-static int score=0;
+static int tempCheck=0;
+static int humCheck=0;
+static int moist1Check=0;
+static int moist2Check=0;
 esp_mqtt_client_handle_t client;
 static esp_adc_cal_characteristics_t adc1_chars;
 static esp_adc_cal_characteristics_t adc1_1_chars;
@@ -264,10 +267,12 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
         if(strcmp(topicStr,"TOPIC=ESP32/water")==0){
             if(strcmp(dataStr,"1")==0){
                 gpio_set_level(GPIO_NUM_23, 1);
-            }  
-            if(strcmp(dataStr,"0")==0){
+                vTaskDelay(pdMS_TO_TICKS(3000));
                 gpio_set_level(GPIO_NUM_23, 0);
-            }
+            }  
+            
+                
+            
         }
 
         if(strcmp(topicStr,"TOPIC=ESP32/rotate")==0){
@@ -378,28 +383,28 @@ void DHT_task(void *pvParameter)
         readDHT();
         
 
-       char temp[50];
+        char temp[50];
         char hum[50];
-        sprintf( temp,"%.1f\n", getHumidity() );
-        sprintf(hum, "%.1f\n", getTemperature() );
-        esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
+        sprintf( hum,"%.1f\n", getHumidity() );
+        sprintf(temp,"%.1f\n", getTemperature() );
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
         esp_mqtt_client_publish(client,"ESP32/value", temp, 0, 1, 0);
-        if((temp+15)<(15+thres_temp) && (temp-15)>(15-thres_temp)){
-            score++;
+        if((temp+15)<(15+thres_temp) || (temp-15)>(15-thres_temp)){
+            tempCheck=1;
         } else{
-            score++;
+            tempCheck=0;
         }
         vTaskDelay( 1000 / portTICK_RATE_MS );
-        esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
         esp_mqtt_client_publish(client,"ESP32/value", hum, 0, 1, 0);
         if(hum<thres_hum){
-            score++;
+            humCheck=1;
         } else{
-            score--;
+            humCheck=0;
         }
         // -- wait at least 2 sec before reading again ------------
         // The interval of whole process must be beyond 2 seconds !! 
-        vTaskDelay( 20000 / portTICK_RATE_MS );
+        vTaskDelay(pdMS_TO_TICKS(30000));
     }
 }
 
@@ -410,7 +415,7 @@ static inline uint32_t example_convert_servo_angle_to_duty_us(int angle)
     return (angle + SERVO_MAX_DEGREE) * (SERVO_MAX_PULSEWIDTH_US - SERVO_MIN_PULSEWIDTH_US) / (2 * SERVO_MAX_DEGREE) + SERVO_MIN_PULSEWIDTH_US;
 }
 
-void Task_moisture1(void *pvParameters)  // This is a task.
+void Task_moisture1(void *pvParameters)  // This is a task.//SOIL 
 {
   printf( "Starting moisture_1 Task\n\n");
   bool cali_enable = adc_calibration_init();
@@ -424,14 +429,24 @@ void Task_moisture1(void *pvParameters)  // This is a task.
         ESP_LOGI(TAG_CH[0][0], "cali data: %d mV", voltage0);
         sprintf(str0,"%d",voltage0);
         esp_mqtt_client_publish(client,"ESP32/value", str0, 0, 1, 0);
-        esp_mqtt_client_publish(client,"ESP32/sensorID", "0", 0, 1, 0);
+        esp_mqtt_client_publish(client,"ESP32/sensorID", "2", 0, 1, 0);
+    }
+
+    //soil moisture
+    if(voltage0<thres_moist){
+        gpio_set_level(GPIO_NUM_21, 1); printf("pump on \n");
+        vTaskDelay(pdMS_TO_TICKS(1000));
+        gpio_set_level(pump_gpio, pump_in_state);printf("pump off \n");
+        moist1Check=0;
+    }else {
+        moist1Check=1;
     }
     //vTaskDelay( 200000 / portTICK_PERIOD_MS ); // wait for one second
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    vTaskDelay(pdMS_TO_TICKS(30000));
   }
 }
 
-void Task_moisture2(void *pvParameters)  // This is a task.
+void Task_moisture2(void *pvParameters)  // This is a task.//Water tank 
 { bool cali_enable = adc_calibration_init();
   printf( "Starting moisture_2 Task\n\n");
   for (;;) // A Task shall never return or exit.
@@ -443,9 +458,18 @@ void Task_moisture2(void *pvParameters)  // This is a task.
             ESP_LOGI(TAG_CH[1][0], "cali data: %d mV", voltage1);
             sprintf(str1,"%d",voltage1);
             esp_mqtt_client_publish(client,"ESP32/value", str1, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "1", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "6", 0, 1, 0);
         }
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    //tank level
+    if(voltage1<1000){
+        esp_mqtt_client_publish(client, "ESP32/tank", "water lvl low! \n", 0, 1, 0);
+        printf("water lvl low in tank low! \n");
+        moist2Check=0;
+    } else{
+        moist2Check=1;
+    }
+        
+    vTaskDelay(pdMS_TO_TICKS(10000));
   }
 }
 
@@ -461,9 +485,9 @@ void Task_light1(void *pvParameters)  // This is a task.
             ESP_LOGI(TAG_CH[2][0], "cali data: %d mV", voltage2);
             sprintf(str2,"%d",voltage2);
             esp_mqtt_client_publish(client,"ESP32/value",str2, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "2", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "4", 0, 1, 0);
         }
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    vTaskDelay(pdMS_TO_TICKS(20000));
   }
 }
 
@@ -479,9 +503,9 @@ void Task_light2(void *pvParameters)  // This is a task.
             ESP_LOGI(TAG_CH[3][0], "cali data: %d mV", voltage3);
             sprintf(str3,"%d",voltage3);
             esp_mqtt_client_publish(client, "ESP32/value",str3, 0, 1, 0);
-            esp_mqtt_client_publish(client,"ESP32/sensorID", "3", 0, 1, 0);
+            esp_mqtt_client_publish(client,"ESP32/sensorID", "5", 0, 1, 0);
         }
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    vTaskDelay(pdMS_TO_TICKS(20000));
   }
 }
 
@@ -496,85 +520,67 @@ void Task_servo(void *pvParameters)  // This is a task.
         ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
         ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
         rotate=0;
-        vTaskDelay(pdMS_TO_TICKS(100)); 
+        vTaskDelay(pdMS_TO_TICKS(1000)); 
     }  
 
     if(pos==0)
     {
         counter=counter+voltage2+voltage3;
-        if(counter>10000){
+        if(counter>500000){
             printf("threshold light reached 500V in total \n");
             counter=0;
             pos=1;
             angle=0;
             ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
             ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
-            vTaskDelay(pdMS_TO_TICKS(600)); 
+            vTaskDelay(pdMS_TO_TICKS(1000)); 
         }
     }
     else if(pos==1)
     {
         counter=counter+voltage2+voltage3;
-        if(counter>10000){
+        if(counter>500000){
             printf("threshold light reached 500V in total \n");
             counter=0;
             pos=0;
             angle=200;
             ESP_LOGI(TAG_servo, "Angle of rotation: %d", angle);
             ESP_ERROR_CHECK(mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, example_convert_servo_angle_to_duty_us(angle)));
-            vTaskDelay(pdMS_TO_TICKS(600)); 
+            vTaskDelay(pdMS_TO_TICKS(100)); 
             }
     }
     printf("counter value %d \n",counter);
-    vTaskDelay(pdMS_TO_TICKS(10000));
+    vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
 
-void Task_waterLevel(void *pvParameters)  // This is a task.
-{
-  printf( "Starting check_water_level Task\n\n");
-  for (;;) // A Task shall never return or exit.
-  {
-   //check water levels
-    if(voltage0<thres_moist){//soil moisture
-        gpio_set_level(GPIO_NUM_21, 1); printf("pump on \n");
-        vTaskDelay(pdMS_TO_TICKS(1000));
-        gpio_set_level(pump_gpio, pump_in_state);printf("pump off \n");
-        score--;
-    }else {
-        score++;
-    }
 
-    if(voltage1<1000){//tank level
-        esp_mqtt_client_publish(client, "ESP32/tank", "water lvl low! \n", 0, 1, 0);
-        printf("water lvl low in tank low! \n");
-        score--;
-    } else{
-        score++;
-    }
-    vTaskDelay(pdMS_TO_TICKS(600)); 
-  }
-}
 
 void Task_LED(void *pvParameters)  // This is a task.
 {
   printf( "Starting update_LED_status Task\n\n");
   for (;;) // A Task shall never return or exit.
   {
-    if(score<=3 ){
+      gpio_set_direction(GPIO_NUM_33, GPIO_MODE_OUTPUT);
+      gpio_set_direction(GPIO_NUM_13, GPIO_MODE_OUTPUT);
+      gpio_set_direction(GPIO_NUM_15, GPIO_MODE_OUTPUT);
+        if(tempCheck==1 && humCheck==1 && moist1Check==1 && moist2Check==2){
+            
             gpio_set_level(GPIO_NUM_33, 1);
             gpio_set_level(GPIO_NUM_15, 1);
-            gpio_set_level(GPIO_NUM_32, 1);
-        } else if(score==2){
+            gpio_set_level(GPIO_NUM_13, 1);
+        } else if(tempCheck==1 && humCheck==1 && (moist1Check==1 || moist2Check==2)){
+            
             gpio_set_level(GPIO_NUM_33, 1);
             gpio_set_level(GPIO_NUM_15, 1);
-            gpio_set_level(GPIO_NUM_32, 0);
+            gpio_set_level(GPIO_NUM_13, 0);
         } else {
+            
             gpio_set_level(GPIO_NUM_33, 1);
             gpio_set_level(GPIO_NUM_15, 0);
-            gpio_set_level(GPIO_NUM_32, 0);
+            gpio_set_level(GPIO_NUM_13, 0);
         }
-    vTaskDelay(pdMS_TO_TICKS(600)); 
+    vTaskDelay(pdMS_TO_TICKS(10000)); 
   }
 }
 
@@ -638,10 +644,10 @@ void Task_lightSleep(void *pvParameters)  // This is a task.
        
         esp_wifi_start();
         esp_wifi_connect();
-        vTaskDelay(1000);
+        vTaskDelay(500);
         esp_mqtt_client_start(client);
         esp_mqtt_client_reconnect(client);
-        vTaskDelay(pdMS_TO_TICKS(600)); 
+        vTaskDelay(pdMS_TO_TICKS(1000000)); 
   }
 }
 
@@ -649,6 +655,7 @@ void Task_lightSleep(void *pvParameters)  // This is a task.
 
 void app_main(void)
 {   
+    //init 
     bool cali_enable = adc_calibration_init();
 
     //Initialize NVS
@@ -697,14 +704,13 @@ void app_main(void)
     mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
 
     vTaskDelay( 1000 / portTICK_RATE_MS );
-	xTaskCreate( &DHT_task, "DHT_task", 2048, NULL, 5, NULL );
+	xTaskCreate( &DHT_task, "DHT_task", 2048, NULL, 3, NULL );
     xTaskCreate(&Task_moisture1, "Task_moisture1",2048,NULL,5,NULL);
-    xTaskCreate(&Task_moisture2, "Task_moisture2",2048,NULL,5,NULL);
-    xTaskCreate(&Task_light1, "Task_light1",2048,NULL,5,NULL);
-    xTaskCreate(&Task_light2, "Task_light2",2048,NULL,5,NULL);
-    xTaskCreate(&Task_servo,"Task_servo",2048,NULL,5,NULL);
-    xTaskCreate(&Task_waterLevel,"Task_waterLevel",2048,NULL,5,NULL);
-    xTaskCreate(&Task_LED, "Task_LED",2048,NULL,5,NULL);
-    xTaskCreate(&Task_lightSleep,"Task_lightSleep",2048,NULL,5,NULL);
+    xTaskCreate(&Task_moisture2, "Task_moisture2",2048,NULL,6,NULL);
+    xTaskCreate(&Task_light1, "Task_light1",2048,NULL,7,NULL);
+    xTaskCreate(&Task_light2, "Task_light2",2048,NULL,8,NULL);
+    xTaskCreate(&Task_servo,"Task_servo",2048,NULL,9,NULL);
+    xTaskCreate(&Task_LED, "Task_LED",2048,NULL,4,NULL);
+    xTaskCreate(&Task_lightSleep,"Task_lightSleep",2048,NULL,10,NULL);
         
 }
